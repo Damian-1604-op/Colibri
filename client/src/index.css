@@ -11,6 +11,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+
+  /* Colores de interfaz */
+  --bg-card: #2f2f2f;
+  --border-color: #444;
+  --text-muted: #9ca3af;
+
+  /* Espaciados y bordes */
+  --radius: 8px;
+  --input-padding: 10px 14px;
 }
 
 body {

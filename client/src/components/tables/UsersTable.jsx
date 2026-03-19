@@ -8,17 +8,16 @@ import {
 } from "@tanstack/react-table";
 
 import { useState } from "react";
-import Button from "../Button";
+import Button from "../button/Button";
 import "./tables.css";
-export default function UsersTable({ users, onEdit, onDelete }) {
+export default function UsersTable({ users, onEdit, onDelete, onCreate }) {
   const [sorting, setSorting] = useState([]);
   const [globalFilter, setGlobalFilter] = useState("");
-
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 6,
+  });
   const columns = [
-    {
-      header: "ID",
-      accessorKey: "id_user",
-    },
     {
       header: "Nombre",
       accessorKey: "name",
@@ -31,13 +30,13 @@ export default function UsersTable({ users, onEdit, onDelete }) {
       header: "Acciones",
       cell: ({ row }) => (
         <div className="actions">
-          <Button onClick={() => onEdit(row.original)} className="table">
+          <Button onClick={() => onEdit(row.original)} variant={"warning"}>
             Editar
           </Button>
 
           <Button
             onClick={() => onDelete(row.original.id_user)}
-            className="table"
+            variant="danger"
           >
             Eliminar
           </Button>
@@ -52,9 +51,11 @@ export default function UsersTable({ users, onEdit, onDelete }) {
     state: {
       sorting,
       globalFilter,
+      pagination,
     },
     onSortingChange: setSorting,
     onGlobalFilterChange: setGlobalFilter,
+    onPaginationChange: setPagination,
 
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -65,13 +66,17 @@ export default function UsersTable({ users, onEdit, onDelete }) {
   return (
     <div>
       {/* BUSCADOR */}
-      <input
-        type="text"
-        placeholder="Buscar usuario..."
-        value={globalFilter ?? ""}
-        onChange={(e) => setGlobalFilter(e.target.value)}
-        style={{ marginBottom: "10px", padding: "5px" }}
-      />
+      <div className="table__actionsContainer">
+        <Button onClick={onCreate} variant="primary">
+          Crear usuario
+        </Button>
+        <input
+          type="text"
+          placeholder="Buscar usuario..."
+          value={globalFilter ?? ""}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+        />
+      </div>
 
       {/* TABLA */}
       <table>
@@ -117,7 +122,7 @@ export default function UsersTable({ users, onEdit, onDelete }) {
         <Button
           onClick={() => table.setPageIndex(0)}
           disabled={!table.getCanPreviousPage()}
-          className="table"
+          variant="pagination"
         >
           Inicio
         </Button>
@@ -125,7 +130,7 @@ export default function UsersTable({ users, onEdit, onDelete }) {
         <Button
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
-          className="table"
+          variant="pagination"
         >
           Anterior
         </Button>
@@ -141,7 +146,7 @@ export default function UsersTable({ users, onEdit, onDelete }) {
         <Button
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
-          className="table"
+          variant="pagination"
         >
           Siguiente
         </Button>
@@ -149,7 +154,7 @@ export default function UsersTable({ users, onEdit, onDelete }) {
         <Button
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           disabled={!table.getCanNextPage()}
-          className="table"
+          variant="pagination"
         >
           Final
         </Button>

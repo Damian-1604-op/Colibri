@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./ModalStyle.css";
-import Button from "../Button";
+import Button from "../button/Button";
 
 export default function Modal({ isOpen, onClose, children }) {
   if (!isOpen) return null;

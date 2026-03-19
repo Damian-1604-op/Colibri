@@ -1,0 +1,59 @@
+.btn {
+  padding: 8px;
+  margin: 0px 8px 0px 0px;
+  border-radius: 10px;
+  color: rgb(233, 228, 228);
+  border: 1px solid gray;
+  color: rgb(0, 0, 0);
+}
+
+.btn:hover {
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  transition: ease 0.5s;
+  background-color: rgb(47, 47, 47);
+}
+
+.btn--primary {
+  background-color: rgb(34, 207, 34);
+}
+
+.btn--primary:hover {
+  color: rgb(34, 207, 34);
+  border: 1px solid rgb(34, 207, 34);
+}
+
+.btn--warning {
+  background-color: rgb(255, 242, 0);
+}
+
+.btn--warning:hover {
+  color: rgb(255, 242, 0);
+  border: 1px solid rgb(255, 242, 0);
+}
+
+.btn--danger {
+  background-color: rgb(255, 102, 0);
+}
+.btn--danger:hover {
+  color: rgb(255, 102, 0);
+  border: 1px solid rgb(255, 102, 0);
+}
+
+.btn--pagination {
+  background-color: rgba(26, 26, 26, 0);
+  color: white;
+  border: 1px solid white;
+}
+
+.btn--pagination:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--pagination:hover {
+  background-color: rgba(244, 244, 244, 0.955);
+  color: black;
+  border: 1px solid black;
+}

@@ -3,7 +3,7 @@ import { getUsers, createUser, updateUser, deleteUser } from "../../api/users";
 
 import UserForm from "../../components/UserForm";
 import UsersTable from "../../components/tables/UsersTable";
-import Button from "../../components/Button";
+import Button from "../../components/button/Button";
 import Modal from "../../components/Modal/Modal";
 import "./users.css";
 
@@ -54,12 +54,16 @@ export default function UsersPage() {
   };
   return (
     <div className="container">
-      <h1>Panel de Usuarios </h1>
-      <Button onClick={() => handleCreate()}>createUser</Button>
+      <h1 className="container__title">Panel de Usuarios </h1>
       <Modal isOpen={open} onClose={() => setOpen(false)}>
         <UserForm onSubmit={handleSubmit} editingUser={editingUser} />
       </Modal>
-      <UsersTable users={users} onEdit={handleEdit} onDelete={handleDelete} />
+      <UsersTable
+        users={users}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+        onCreate={handleCreate}
+      />
     </div>
   );
 }
