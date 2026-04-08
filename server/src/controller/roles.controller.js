@@ -19,6 +19,13 @@ export const getRoleById = asyncHandler(async (req, res) => {
 
 export const createRole = asyncHandler(async (req, res) => {
   const { rol_name } = req.body;
+  const existingRole = await pool.query(
+    "SELECT * FROM roles WHERE rol_name = $1 AND active = true",
+    [rol_name],
+  );
+  if (existingRole.rowCount > 0) {
+    return res.status(400).json({ message: "El rol ya existe" });
+  }
   const queryText = "INSERT INTO roles (rol_name) VALUES ($1) RETURNING *";
   const result = await pool.query(queryText, [rol_name]);
   res.status(201).json({ message: "Rol creado", role: result.rows[0] });

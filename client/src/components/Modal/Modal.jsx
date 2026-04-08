@@ -8,7 +8,7 @@ export default function Modal({ isOpen, onClose, children }) {
   return ReactDOM.createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <Button className="modal-close" onClick={onClose}>
+        <Button variant="danger" onClick={onClose}>
           X
         </Button>
 

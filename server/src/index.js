@@ -1,15 +1,20 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import userRoutes from "./routes/users.routes.js";
 import rolesRoutes from "./routes/roles.routes.js";
+import addresRoutes from "./routes/address.routes.js";
 import express from "express";
 import morgan from "morgan";
 import pool from "./db.js";
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/api", userRoutes);
 app.use("/api", rolesRoutes);
+app.use("/api", addresRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);

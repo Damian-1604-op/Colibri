@@ -42,9 +42,9 @@
 }
 
 .btn--pagination {
-  background-color: rgba(26, 26, 26, 0);
-  color: white;
-  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .btn--pagination:disabled {
@@ -53,7 +53,18 @@
 }
 
 .btn--pagination:hover {
-  background-color: rgba(244, 244, 244, 0.955);
-  color: black;
+  background-color: rgba(0, 0, 0, 0.955);
+  color: rgb(251, 251, 251);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.btn--role_option {
+  background-color: white;
   border: 1px solid black;
+}
+
+.btn--role_option:hover {
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
+  color: white;
 }

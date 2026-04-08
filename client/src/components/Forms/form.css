@@ -1,0 +1,62 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title__form {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  font-size: 18px;
+  color: black;
+  align-self: center;
+}
+
+.form__container {
+  width: 300px;
+  display: flex;
+  gap: 10px;
+}
+
+.form__container .select {
+  flex: 7;
+}
+
+.form__container button {
+  flex: 3;
+}
+
+.select {
+  background-color: white;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 5px;
+  color: black;
+  outline: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* efecto al enfocar */
+.select:focus {
+  border-color: #0a8f0a;
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.3);
+}
+
+/* para que la flecha se vea más limpia */
+.select option {
+  color: black;
+}
+
+.formHorizontal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form__action {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+}

@@ -27,6 +27,10 @@ export default function UsersTable({ users, onEdit, onDelete, onCreate }) {
       accessorKey: "email",
     },
     {
+      header: "Rol",
+      accessorKey: "rol_name",
+    },
+    {
       header: "Acciones",
       cell: ({ row }) => (
         <div className="actions">
@@ -57,6 +61,8 @@ export default function UsersTable({ users, onEdit, onDelete, onCreate }) {
     onGlobalFilterChange: setGlobalFilter,
     onPaginationChange: setPagination,
 
+    globalFilterFn: "includesString",
+
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -74,6 +80,7 @@ export default function UsersTable({ users, onEdit, onDelete, onCreate }) {
           type="text"
           placeholder="Buscar usuario..."
           value={globalFilter ?? ""}
+          className="table__actionsContainer__input"
           onChange={(e) => setGlobalFilter(e.target.value)}
         />
       </div>

@@ -8,7 +8,6 @@ export default function Button({
   className = "",
   disabled = false,
 }) {
-  // Combinamos una clase base 'btn', la variante 'btn--primary' y cualquier clase extra
   const fullClassName = `btn btn--${variant}`;
 
   return (
